@@ -1,0 +1,455 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb, amsmath}
+\usepackage[main=english,czech]{babel}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[a4paper, top=0.3cm, bottom=0.2cm, left=1.2cm, right=1.2cm, ]{geometry}%, showframe
+\usepackage{color}
+%special characters, e.g. external link icons
+\usepackage{fontawesome}    %\faExternalLink, \faHandORight, \faGlobe
+\usepackage{marvosym}       %\Telefon, \Letter, \Mundus, \ComputerMouse
+\usepackage{pifont}         %\ding{43}   
+\usepackage{setspace}
+\usepackage{epstopdf}
+\usepackage{ifsym}
+\usepackage{Mnsymbol}
+\usepackage{skak}
+\usepackage{adforn}
+\usepackage{eso-pic,graphicx}
+%\usepackage{tikz}
+%\usepackage[T1]{fontenc}
+
+%================================================
+
+\usepackage{tikz}
+\newcommand{\udensdot}[1]{%
+    \tikz[baseline=(todotted.base)]{
+        \node[inner sep=0.5pt,outer sep=0.5pt] (todotted) {#1};
+        \draw[densely dotted] (todotted.south west) -- (todotted.south east);
+    }%
+}%
+%----------------------------------------------
+\urlstyle{same}
+%-----underline style of url---------
+
+%--- underline with dotted line ---
+\newcommand{\myHref}[2]{\udensdot{\hspace{-1.2pt}\href{#1}{#2}\hspace{-4pt}}\hspace{-1.2pt}}
+\newcommand{\myHrefIcn}[2]{#2 \href{#1}{\scriptsize{\faExternalLink{}}}}
+
+%
+%--- no underline ---
+%\newcommand{\myHref}[2]{\href{#1}{#2}}
+%
+%------------------------------------
+%================================================
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-2pt}\scshape\raggedright\large
+}{}{0em}{}[\color{brown! 80}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\first}{1\textsuperscript{st}}
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+\newcommand{\resumeItemCustom}[1]{
+  \item\small{#1 \vspace{-2pt}}
+}
+
+\newcommand{\resumeSubheadingFourOriginal}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+\newcommand{\resumeSubheadingEduThree}[3]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} $\vert$ \textit{\small#3} & #2 \\
+    \end{tabular*}\vspace{-16pt}
+}
+\newcommand{\resumeSubheadingEduFourLink}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      {\textbf{#1}} \textit{\small#4} & #3 \\
+    \end{tabular*}\vspace{-20pt}
+}
+\newcommand{\resumeSubheadingEduFive}[5]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} $\vert$ \textit{\small#3} & #2 \\
+      GPA #5 & {\small #4} \\
+    \end{tabular*}\vspace{-12pt}
+}
+\newcommand{\resumeSubheadingFour}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#2} & {\small #3} \\
+      \textbf{\small #1} & {\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+
+\newcommand{\resumeJobSubheadingD}[7]{
+  \vspace{0pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#4}  \hspace{3pt}  & {\small #5}
+    \end{tabular*}\vspace{-6pt}
+}
+
+
+\newcommand{\projectDescription}[1]{
+  \vspace{-6pt}
+  
+  \textit{\small#1}\\
+  \vspace{-5pt}
+}
+\newcommand{\projectDescriptionC}[1]{
+  \vspace{-12pt}
+  
+  \textit{\small#1}\\
+  \vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{  $\triangleright$ } %exp
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\usepackage{scalerel}
+\newcommand{\csharpp}{C\scalerel*{\#}{X}}
+\newcommand{\csharp}{C\#}
+\newcommand{\cplusplus}{C\texttt{++}}
+
+\newcommand{\myFaKaggle}{{\fontfamily{lmss}\selectfont \textbf{k}}}%fonts: pag, phv, lmss, qag, qhv
+
+\newcommand{\version}{Document version: \ifcase \month \or Jan\or Feb\or Mar\or %
+Apr\or May\or Jun\or Jul\or Aug\or Sep\or Oct\or Nov\or %
+Dec\fi~\number\year} 
+
+\newcommand{\twoRowCell}[2]{\begin{tabular}[t]{@{}l@{}}#1\\#2\end{tabular}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{mygrayA}{gray}{0.3}
+\definecolor{mygrayB}{gray}{0.2}
+%
+%---------- Define formatted text ----------
+\newcommand{\mytitle}{\textbf{{\huge {Blessings Mambwe}}}}
+
+{%
+\newcommand{\intro}{
+Inquisitive and self-motivated machine learning researcher looking to attend a master's program with funding or work in a lab where I can use my skills in mechanics and linear algebra to build physics informed machine learning models.}}
+
+\newcommand{\email}{%
+\href{mailto:bleymambwe@gmail.com}{\scriptsize{\faEnvelope{}}} bleymambwe@gmail.com}
+
+\newcommand{\linkedin}{
+\href{https://linkedin.com/in/bleymambwe/} {linkedin.com/in/bleymambwe}}
+
+\newcommand{\gitlab}{
+\href{https://gitlab.com/bleymambwe}{\faGitlab{}} gitlab.com/bleymambwe}
+
+\newcommand{\github}{
+\href{https://github.com/bleymambwe}{\faGithub{}} github.com/bleymambwe}
+
+\newcommand{\portfolio}{\href{https://www.dropbox.com/sh/p7llir6jzn9ey2e/AAA5wInAs7B0Ttw2MomihMpda?dl=0}\faFolderOpen Portfolio : {https://cutt.ly/FKrfhQ6} }
+\newcommand{\addressBR}{%
+\hspace{1pt}\faMapMarker{}\hspace{1pt}(GMT+2) Lusaka, Zambia}
+\newcommand{\phoneBR}{%
+\href{tel:+260761233907}{\faWhatsapp{}} +26 076 1233 907}%\faPhone{}
+
+\setstretch{1.2}
+%---------- DOCUMENT ----------
+\begin{document}
+%
+%\AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{imm.jpg}}
+
+%\tikz[remember picture,overlay] \node[opacity=0.3,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{im.jpg}
+
+\vspace{-10pt}
+%----------HEADING-----------------
+\begin{minipage}{0.73\linewidth}%743
+    {\centering
+        \mytitle{}\par
+    }
+    \vspace{6pt}
+    %\intro{}
+    
+\end{minipage}
+\hspace{6pt}
+\begin{minipage}{0.243\linewidth}
+    {\flushleft
+        \vspace{25pt}
+        \small{
+          %\portfolio{}\\
+        \linkedin{}\\
+        \github{}\\
+       % \gitlab{}\\
+         \email{}\\
+         \phoneBR{}\\
+        \addressBR{}\\
+        }
+    }
+\end{minipage}
+
+\vspace{-5pt}
+%\vspace{-14pt}
+
+\section{Skills}
+ \resumeSubHeadingListStart
+ \resumeSubItem{Languages \faCode }{~~~~~~~~$\diamond$~~Dart~~~$\diamond$ ~Python~~$\diamond$ ~Javascript~~   }
+ 
+\resumeSubItem{Frameworks}{~~~$\diamond$~~Flutter~~~~~$\diamond$~~Docker~~$\diamond$~~FastAPI~~~$\diamond$~~Pytorch/Tensorflow~~$\diamond$~~Google Cloud~~$\diamond$~~AWS Services~~$\diamond$~~Nginx~~  }
+
+\resumeSubHeadingListEnd
+
+
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+
+  \resumeSubHeadingListStart
+
+  \resumeJobSubheadingD
+  {}{}{}
+  {ML Collective}{Jun 2020 -- Present $\vert$ Remote}
+  {}
+ {{}{} }
+  \textit{
+ Machine Learning
+  Researcher - Part-Time}
+  \resumeItemListStart
+\resumeItemCustom{  Lead 300+ members in the physics-informed machine learning group by giving talks and tutorials on research papers in the field. Assisted a postgraduate student to understand transformers for his master's thesis.}
+
+\resumeItemCustom{Successfully deployed the most efficient object detection model, Efficient Detection, to detect airplanes from satellite images using Python and PyTorch.}
+
+%\resumeItemCustom{I analyse research papers in the field of physics informed ML, computer vision and reinforcement learning. Like neural ODE, inverse reinforcement learning (GAIL) and Masked RCNN. See sample \textcolor{blue}{\href{https://www.dropbox.com/s/k7alovwtq06falo/PDNO.pdf?dl=0}{[PPT]}}.}
+
+\resumeItemCustom{Collaborated and communicated perfectly with 2 researchers to co-author and submit a blog post to ICLR comparing Deepmind's mechGraphNets model to molecular particle simulators. I simulated flag dynamics, bash scripted to download Blender and created renders using cloud GPU on Google Colab (Linux). See\textcolor{blue}{\href{https://www.dropbox.com/s/y86gnyfd6u8f9rj/Final\%20ICLR\%20Blog\%20Post.pdf?dl=0}{[report]}}.}
+
+\resumeItemCustom{Proposed a neural-evolutionary NN architecture that theoretically outperforms NEAT and DQN, presented my theory before experts, see \textcolor{blue}{\href{https://youtu.be/tXWcrwOwhFE}{[presentation]}}. Am now writing code in Python leveraging iterative depth first search, trees and other complex design patterns.  }
+
+\resumeItemListEnd
+
+  \resumeJobSubheadingD
+      {}{}{}
+      {IO Technolgoies}{ April 2023 -- June 2023 $\vert$ Remote, Zambia}
+      {}
+     {{}{} }
+      \textit{ Software Developer - Contract  }
+      \resumeItemListStart
+
+
+\resumeItemCustom{Independently successfully developed a sophisticated vehicle tracking system responsible for notifying users of driving violations, including overspeeding and night driving infractions to adhere to traffic regulations.}
+
+\resumeItemCustom{Designed an efficient algorithm in Python to detect instances of violations from hundreds of vehicles by calculating time, speed, and other parameters per API request. Updated the database and leveraged multithreading and the Outlook API to dispatch violation alerts instantly.}
+
+\resumeItemCustom{Leveraged AWS Serverless lambda to seamlessly present real-time vehicle information, facilitating remote debugging for enhanced efficiency. }
+
+\resumeItemCustom{Engineered a novel algorithm integrating Bing Maps API and other geographical APIs to assess road conditions. That is, whether a road is paved or unpaved, and classifies its location as a highway, build-up area, or residential zone.}
+
+\resumeItemCustom{Designed an intuitive homepage, login page, and dashboard in Flutter using Dart. The dashboard featured a dynamic list displaying live vehicle feeds. Additionally, containerized the system using Docker and deployed it on a AWS virtual machine, ensuring optimal scalability and performance.}
+\resumeItemListEnd
+
+\resumeJobSubheadingD
+      {}{}{}
+      {Konkola Copper Mines }{Oct 2022 -- May 2023 { $\vert$ }Chingola, Zambia }
+      {}
+     {{}{} }
+     
+\textit{Mechanical Engineer - Intern }
+
+\resumeItemListStart
+
+\resumeItemCustom{Independently efficiently automated data analysis of pump and motor vibrations offering superior efficiency over Excel. This task was normally done by 2 or more people.}
+%\resumeItemCustom{Worked with expertise in workshop and field operations, specializing in the disassembly, repair, and assembly of industrial pumps, gearboxes, and machinery during running hours and shutdowns.}
+
+\resumeItemCustom{Independently deployed Yolov8, one of the most accurate image classification machine learning models, to detect pipe leaks, fostering a \$300 novel sensor to reduce hazards and maintenance downtime.}
+ 
+\resumeItemCustom{Collaborated with the Assistant Superintendent to effectively manage 10 $\times$ 5 multi-disciplinary teams, ensuring smooth predictive and reactive maintenance of Pump-station at one of the world's largest copper mines, and demonstrated excellent work ethic by working an extra 5 hours.}
+\resumeItemListEnd
+
+\resumeJobSubheadingD
+      {}{}{}
+      {Afri-Meta}{Jun 2022 -- Sep 2022 $\vert$ Lusaka, Zambia}
+      {}
+     {{}{} }
+      \textit{ Software Developer Intern }
+      \resumeItemListStart
+
+
+\resumeItemCustom{Led a team of 4 in building a food classification app with Google Cloud deployment of the machine learning model with technical documentation coded using HTML and CSS.}
+\resumeItemCustom{Programmed an e-commerce app in Flutter using Dart, wrote code to alter SQL database.}
+
+\resumeItemCustom{Independently coded in Python with PyTorch to implement a Normalizer-Free machine learning model from a recent paper, the ‘EffNetV2’ which is currently the best performing model. It archived an accuracy of 93\% and cloud inference time of 0.8 seconds. }
+
+\resumeItemCustom{Successfully deployed the model on Google Cloud Engine, utilizing Docker for containerization. Involved writing Linux Bash script to streamline the deployment process.See {\textcolor{blue}{\href{https://www.dropbox.com/s/3va3to2hpfic3mq/Calorifythis.mp4?dl=0}{[demo]}}.} }
+
+\resumeItemListEnd
+    
+\resumeJobSubheadingD
+      {}{}{}
+      {Manchester United Football Club}{Nov 2016 -- Mar 2019 $\vert$ Manchester, UK}
+      {}
+     {{}{} }
+     
+      \textit{Hospitality Staff}
+      \resumeItemListStart
+      
+\resumeItemCustom{Demonstrated leadership skills by covering the manager and onboarding new recruits. }
+
+\resumeItemCustom{I served thousands of football fans on matchdays where I used my communications skills and the ability to use initiative in busy environments. }
+
+\resumeItemCustom{Demonstrated excellent work ethic and trustworthiness by working extra hours in other departments, such as the executive lounge.}
+               
+\resumeItemListEnd
+
+    
+\resumeSubHeadingListEnd
+
+
+%\vspace{-2pt}
+
+%-----------PROJECTS-----------------
+
+\section{Engadgment and Independent Research Projects}
+
+\resumeSubHeadingListStart
+
+\resumeSubItem{Absa Datascience Hackathon }{Was shortlisted for the Data Science hackathon. In under 24 hours, I utilized Python to analyze and predict customer churn from big data. developed code for data visualization, correlation matrices, and SVM algorithm implementation.See \textcolor{blue}{\href{https://www.dropbox.com/s/v599evmeuq9hsym/AbsaReport_2nd_Assement.pdf?dl=0}{[report]}}}
+
+\resumeSubItem{Predicting Fluid Flow with Operator Learning}%
+{Researched the field of operators. Wrote code in Python using PyTorch to extract DMD modes and predict fluid flow. Wrote a report discussing theory \& algorithm. See \textcolor{blue}{\href{https://www.dropbox.com/s/gu74a37mwe1binj/dmd.pdf?dl=0}{[report]}}.}
+
+\resumeSubItem{Estimating solubility of chemical elements using GraphSAGE}
+ {Used Python with PyTorch to deploy the GraphSAGE model to classify proteins from big datasets of proteins. Wrote a report which included essential graph algorithms. See \textcolor{blue}{\href{https://www.dropbox.com/s/vg7nbcy2lk56o9f/Genetic\%20Operators\%20and\%20Permutations\%20on\%20GraphNetworks.pdf?dl=0}{[report]}}.} 
+
+\resumeSubHeadingListEnd
+%--------COMPUTER SCIENCE SKILLS------------
+\section{Other Projects}
+\resumeSubHeadingListStart
+
+\resumeSubItem{Dante Rush Game}
+{Independently programmed a dynamic game in Flutter using Dart, incorporating Rive animations achieving a smooth 60 frames per second performance.}
+\resumeSubHeadingListEnd
+
+\vspace{0.5pt}
+\section{ Academic Experience }
+ \resumeSubHeadingListStart
+\resumeJobSubheadingD
+      {}{}{}
+      {Tracheostomy Humidifier}{Sept 2018 -- Mar 2019 $\vert$ Manchester, UK}
+      {}
+     {{}{} }
+     
+      \textit{Final Year Thesis}
+      \resumeItemListStart
+      
+\resumeItemCustom{Designed a heating exchanger device to provide humidified air to patients who have complications with breathing.}
+\resumeItemCustom{Researched the field of psychometrics, calculated optimal pressure and velocity values for humidification. Used Solidworks to communicate the design.}
+               
+\resumeItemListEnd
+
+\resumeJobSubheadingD
+      {}{}{}
+      {Pipe Climbing Robot}{Sept 2017 -- Mar 2018 $\vert$ Manchester, UK}
+      {}
+     {{}{} }
+     
+      \textit{$2^{nd}$ Year Project}
+      \resumeItemListStart
+      
+\resumeItemCustom{Led a team of 4 in designing a pipe climbing robot for the IMechE Challenge.}
+
+\resumeItemCustom{I designed the control unit, wrote code in C and simulated the motor's rotations per minute in line with calculations, I also set up the Arduino and uploaded the programme on it.}
+
+
+\resumeItemListEnd
+
+% \resumeJobSubheadingD
+%       {}{}{}
+%       {Repeatable Vehicle}{Sept 2016 -- Mar 2017 $\vert$ Manchester, UK}
+%       {}
+%      {{}{} }
+     
+%       \textit{$1^{nd}$ Year Project}
+%       \resumeItemListStart
+      
+% \resumeItemCustom{Led a team of 4 in designing a repeatable vehicle to compete in the IMechE Design Challenge.}
+
+% \resumeItemCustom{I Designed the control system of the vehicle which comprised of electronic components like the DPDT switch for reversal. }
+
+% %\resumeItemCustom{I also covered the manager and assisted in on onboarding new recruits were I used my leadership skills.}
+               
+% \resumeItemListEnd
+
+
+\resumeJobSubheadingD
+      {}{}{}
+      {Academic Tutor}{Apr 2017 -- Dec 2018 $\vert$ Manchester, UK}
+      {}
+     {{}{} }
+     
+      \textit{A Level Tutor}
+      \resumeItemListStart
+      
+\resumeItemCustom{Tutored A level students in Physics, Chemistry, Biology and Mathematics.}
+
+%\resumeItemCustom{Researched the syllabus and different examination boards namely, OCR, AQA and CIE. I Simplified complex scientific principles for students to follow.}
+
+\resumeItemCustom{Received testimony of a student who started ranking in the top 10 from the bottom.}
+               
+\resumeItemListEnd
+
+ \resumeSubHeadingListEnd
+%-----------EDUCATION-----------------
+\section{Education }
+
+\resumeSubHeadingListStart
+ 
+\resumeSubItem{Independent Study}{ 2019-2020 \vert $\circ$ A Matrix Algebra Approach to Artificial Intelligence\href{https://www.springer.com/gp/book/9789811527692}{ \textsuperscript{\small{\faBook} }} 
+$\circ$ Approximation Theory \& Algorithms for Data Analysis 
+\href{https://link.springer.com/book/10.1007/978-3-030-05228-7}{ \textsuperscript{\small{\faBook} }}
+} %$\circ$ Data-Driven System Dynamics 
+\href{https://www.springer.com/gp/book/9783030357122}{ \textsuperscript{\small{\faBook} }} $\circ$ Advanced Aerodynamics 
+
+\vspace*{10pt}
+\resumeSubItem{\textsuperscript{}Manchester Metropolitan University }{Bsc (hons) Mechanical Engineering ~~ 2015 -- 2019 $\vert$ Manchester, UK   }
+
+\vspace{10pt}
+{ \color{brown! 80}\hrule}
+ \resumeSubItem{\textsf{ Awards \faTrophy} }{ $\circ $ Carbon Literacy \href{https://www.dropbox.com/s/achix1g3i5rjrme/BM_CarbonLiterateCertificate.pdf?dl=0}{\color{green!80} \faLeaf} $\circ$  Hour of Code{\small{ \href{https://www.dropbox.com/s/iq4mhbf5r6rdpr2/hour\%20of\%20code.jpg?dl=0}{\faCertificate}}}}{  $\bigg \vert $ \small{\textsf{\textbf{Hobbies}}: \textit{Chess \symknight ~~~Sound Design {\href{https://www.dropbox.com/s/chbltfrsdu4wikb/bell_sounddesign.mp3?dl=0 }{ \textmusicalnote }} Music Production   \href{https://www.dropbox.com/s/aq5357987mbt1d7/Melody\%20Mix.wav?dl=0}{ \faMusic } }}}
+%$\circ $ Carbon Literacy {\color{green!80} \faLeaf}
+\resumeSubHeadingListEnd
+
+%-------------------------------------------
+
+
+\end{document}
