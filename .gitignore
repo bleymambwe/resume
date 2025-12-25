@@ -5,6 +5,15 @@
 .env
 .env.local
 
+# Node.js
+node_modules/
+package-lock.json
+
+# Test files and screenshots
+test-playwright.js
+*-screenshot.png
+*.png
+
 # LaTeX build artifacts
 *.aux
 *.fdb_latexmk
@@ -13,6 +22,14 @@
 *.out
 *.synctex.gz
 
+# Application logs
+logs/
+*.log
+
 # OS files
 .DS_Store
 Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
