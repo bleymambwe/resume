@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git rm:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(git ls-tree:*)",
+      "Read(**)",
+      "Edit(**)",
+      "Bash(*)"
+    ]
+  },
+  "env": {
+    "NOTION_API_KEY": "${NOTION_API_KEY}",
+    "CHROME_PORT": "9222"
+  },
+  "enableAllProjectMcpServers": true
+}
