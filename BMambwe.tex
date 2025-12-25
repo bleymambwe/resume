@@ -1,0 +1,604 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb, amsmath}
+\usepackage[main=english,czech]{babel}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[a4paper, top=0.3cm, bottom=0.2cm, left=1.2cm, right=1.2cm, ]{geometry}%, showframe
+\usepackage{color}
+%special characters, e.g. external link icons
+\usepackage{fontawesome}    %\faExternalLink, \faHandORight, \faGlobe
+\usepackage{marvosym}       %\Telefon, \Letter, \Mundus, \ComputerMouse
+\usepackage{pifont}         %\ding{43}   
+\usepackage{setspace}
+\usepackage{epstopdf}
+\usepackage{ifsym}
+%\usepackage{Mnsymbol}
+\usepackage{skak}
+\usepackage{adforn}
+\usepackage{eso-pic,graphicx}
+%\usepackage{tikz}
+%\usepackage[T1]{fontenc}
+
+%================================================
+
+\usepackage{tikz}
+\newcommand{\udensdot}[1]{%
+    \tikz[baseline=(todotted.base)]{
+        \node[inner sep=0.5pt,outer sep=0.5pt] (todotted) {#1};
+        \draw[densely dotted] (todotted.south west) -- (todotted.south east);
+    }%
+}%
+%----------------------------------------------
+\urlstyle{same}
+%-----underline style of url---------
+
+%--- underline with dotted line ---
+\newcommand{\myHref}[2]{\udensdot{\hspace{-1.2pt}\href{#1}{#2}\hspace{-4pt}}\hspace{-1.2pt}}
+\newcommand{\myHrefIcn}[2]{#2 \href{#1}{\scriptsize{\faExternalLink{}}}}
+
+%
+%--- no underline ---
+%\newcommand{\myHref}[2]{\href{#1}{#2}}
+%
+%------------------------------------
+%================================================
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-2pt}\scshape\raggedright\large
+}{}{0em}{}[\color{brown! 80}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\first}{1\textsuperscript{st}}
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+\newcommand{\resumeItemCustom}[1]{
+  \item\small{#1 \vspace{-2pt}}
+}
+
+\newcommand{\resumeSubheadingFourOriginal}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+\newcommand{\resumeSubheadingEduThree}[3]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} $\vert$ \textit{\small#3} & #2 \\
+    \end{tabular*}\vspace{-16pt}
+}
+\newcommand{\resumeSubheadingEduFourLink}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      {\textbf{#1}} \textit{\small#4} & #3 \\
+    \end{tabular*}\vspace{-20pt}
+}
+\newcommand{\resumeSubheadingEduFive}[5]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} $\vert$ \textit{\small#3} & #2 \\
+      GPA #5 & {\small #4} \\
+    \end{tabular*}\vspace{-12pt}
+}
+\newcommand{\resumeSubheadingFour}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#2} & {\small #3} \\
+      \textbf{\small #1} & {\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+
+\newcommand{\resumeJobSubheadingD}[7]{
+  \vspace{0pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#4}  \hspace{3pt}  & {\small #5}
+    \end{tabular*}\vspace{-6pt}
+}
+
+
+\newcommand{\projectDescription}[1]{
+  \vspace{-6pt}
+  
+  \textit{\small#1}\\
+  \vspace{-5pt}
+}
+\newcommand{\projectDescriptionC}[1]{
+  \vspace{-12pt}
+  
+  \textit{\small#1}\\
+  \vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{  $\triangleright$ } %exp
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\usepackage{scalerel}
+\newcommand{\csharpp}{C\scalerel*{\#}{X}}
+\newcommand{\csharp}{C\#}
+\newcommand{\cplusplus}{C\texttt{++}}
+
+\newcommand{\myFaKaggle}{{\fontfamily{lmss}\selectfont \textbf{k}}}%fonts: pag, phv, lmss, qag, qhv
+
+\newcommand{\version}{Document version: \ifcase \month \or Jan\or Feb\or Mar\or %
+Apr\or May\or Jun\or Jul\or Aug\or Sep\or Oct\or Nov\or %
+Dec\fi~\number\year} 
+
+\newcommand{\twoRowCell}[2]{\begin{tabular}[t]{@{}l@{}}#1\\#2\end{tabular}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{mygrayA}{gray}{0.3}
+\definecolor{mygrayB}{gray}{0.2}
+%
+%---------- Define formatted text ----------
+\newcommand{\mytitle}{\textbf{{\huge {Blessings Mambwe}}}}
+
+{%
+\newcommand{\intro}{
+Inquisitive and self-motivated machine learning researcher looking to attend a master's program with funding or work in a lab where I can use my skills in mechanics and linear algebra to build physics informed machine learning models.}}
+
+\newcommand{\email}{%
+\href{mailto:bleymambwe@gmail.com}{\scriptsize{\faEnvelope{}}} bleymambwe@gmail.com}
+
+\newcommand{\linkedin}{
+\href{https://linkedin.com/in/bleymambwe/} {linkedin.com/in/bleymambwe}}
+
+\newcommand{\gitlab}{
+\href{https://gitlab.com/bleymambwe}{\faGitlab{}} gitlab.com/bleymambwe}
+
+\newcommand{\github}{
+\href{https://github.com/bleymambwe}{\faGithub{}} github.com/bleymambwe}
+
+\newcommand{\portfolio}{\href{https://www.dropbox.com/sh/p7llir6jzn9ey2e/AAA5wInAs7B0Ttw2MomihMpda?dl=0}\faFolderOpen Portfolio : {https://cutt.ly/FKrfhQ6} }
+\newcommand{\addressBR}{%
+\hspace{1pt}\faMapMarker{}\hspace{1pt}(GMT+2) Lusaka, Zambia}
+\newcommand{\phoneBR}{%
+\href{tel:+260761233907}{\faWhatsapp{}} +26 076 1233 907}%\faPhone{}
+
+\setstretch{1.2}
+%---------- DOCUMENT ----------
+\begin{document}
+%
+%\AddToShipoutPictureBG*{\includegraphics[width=\paperwidth,height=\paperheight]{imm.jpg}}
+
+%\tikz[remember picture,overlay] \node[opacity=0.3,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{im.jpg}
+
+\vspace{-10pt}
+%----------HEADING-----------------
+\begin{minipage}{0.73\linewidth}%743
+    {\centering
+        \mytitle{}\par
+    }
+    \vspace{6pt}
+    %\intro{}
+    
+\end{minipage}
+\hspace{6pt}
+\begin{minipage}{0.243\linewidth}
+    {\flushleft
+        \vspace{25pt}
+        \small{
+          %\portfolio{}\\
+        \linkedin{}\\
+        \github{}\\
+       % \gitlab{}\\
+         \email{}\\
+         \phoneBR{}\\
+        \addressBR{}\\
+        }
+    }
+\end{minipage}
+
+\vspace{-5pt}
+%\vspace{-14pt}
+
+\section{Skills}
+ \resumeSubHeadingListStart
+ \resumeSubItem{Languages \faCode }{~~~~~~~~$\diamond$~~Dart~~~$\diamond$ ~Python~~$\diamond$ ~Javascript~~  }
+ 
+\resumeSubItem{Frameworks}{~~~$\diamond$~~Flutter~~~~~$\diamond$~~Docker~~$\diamond$~~FastAPI~~~$\diamond$~~Pytorch/Tensorflow~~$\diamond$~~Google Cloud~~$\diamond$~~AWS ~~$\diamond$~~SQL~~~~~ $\diamond$ Tableau ~~$\diamond$ PowerBI  }
+
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------------
+
+
+
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+
+ \resumeSubHeadingListStart
+
+
+ \resumeJobSubheadingD
+  {}{}{}
+  {Stanbic Bank}{Aug 2025 -- Present $\vert$ Hybrid}
+  {}
+  {{}{}}
+  \textit{AI \& Automation Engineer}
+  \resumeItemListStart
+
+  \resumeItemCustom{Automated MT940 statement processing using SQL, Python, and Power Automate, enabling faster reconciliation and supporting a projected \$1.3M increase in liability capacity.}
+
+  \resumeItemCustom{Built a secure AI-powered HR conversational interface with governance, compliance, and data-leakage controls for safe enterprise knowledge access.}
+
+  \resumeItemCustom{Designed a collateral management system backed by SQL, automating client collateral allocation, report generation, and scheduled email distribution.}
+
+  \resumeItemCustom{Led a data science upskilling initiative in collaboration with Zindi, strengthening local AI talent and co-driving Zambia’s largest AI and data science event.}
+
+\resumeItemListEnd
+
+
+    \resumeJobSubheadingD
+  {}{}{}
+  { MTN }{Jan 2025 -- August 2025 $\vert$ Remote}
+  {}
+ {{}{} }
+  \textit{
+ Digital Transformation Analyst}
+  \resumeItemListStart
+
+  \resumeItemCustom{Developed a full-stack gamified aptitude test platform with anti-LLM safeguards and real-time scoring \href{https://limitless-4f89b.web.app}{https://limitless-4f89b.web.app}, helping HR teams save thousands of dollars in screening costs.}
+
+  \resumeItemCustom{Led project management for the myMTN app, collaborating with stakeholders, IT, Group, and third parties to resolve technical issues, introduce new features and drive revenue growth.}
+
+  \resumeItemCustom{Analyzed call center data to identify common queries, redirecting 25\% of traffic to the myMTN app, saving \$50,000.}
+  
+  \resumeItemCustom{Analyzed app user data to segment customers by age, location, and product, delivering targeted SMS prompts that boosted app activity by 9\%.}
+ 
+  \resumeItemCustom{Managed the Facebook Mobile Center portal to track product performance, collaborating with Facebook and IT to enhance API success rates, leading to increased revenue.} 
+\resumeItemListEnd
+
+
+
+
+    \resumeJobSubheadingD
+  {}{}{}
+  { MarcTina Consultancy }{Jan 2024 -- Dec $\vert$ Remote}
+  {}
+ {{}{} }
+  \textit{
+ Data Scientist}
+  \resumeItemListStart
+
+  \resumeItemCustom{Utilized large language models to analyze and derive insights from text data.}
+  
+  \resumeItemCustom{ Developed a Python-based resume-processing web app using LangChain APIs, deployed on Google Cloud for real-time analysis of CVs and job details, available at \href{https://resu-ai.web.app}{https://resu-ai.web.app}}
+ 
+  \resumeItemCustom{Led training sessions on data architecture, SQL, data warehouses, and industry best practices.} 
+\resumeItemListEnd
+
+  \resumeJobSubheadingD
+  {}{}{}
+  { Speak Life AI }{Mar 2024 -- Present $\vert$ Remote}
+  {}
+ {{}{} }
+  \textit{
+AI Engineer}
+  \resumeItemListStart
+  
+  \resumeItemCustom{Independently developed a cross-platform faith-based web app for generating biographies, devotions, and scripture searches from the Bible based on user prompts, available at \href{https://speaklifeai.com} {https://speaklifeai.com}} . 
+  
+  \resumeItemCustom{Implemented robust data collection, access procedures, and change processes, maintaining a comprehensive data dictionary for the project.}
+  
+  %\resumeItemCustom{Configured a serverless architecture using Google Cloud Run, enabling infinite scalability and cost-effective performance for both the frontend and backend. This setup ensures seamless handling of high traffic volumes, optimizing resource utilization and enhancing user experience.}
+ 
+  %\resumeItemCustom{Implemented a dynamic user interface in Dart, delivering a personalized onboarding experience with devotions based on name, location and other parameters.} 
+
+ % \resumeItemCustom{ Led the creation of project OKRs and managed cross-functional teams including development, client engagement, and quality assurance.}
+\resumeItemListEnd
+
+
+
+  % \resumeJobSubheadingD
+  % {}{}{} { Absa Bank Innovation Hub }{Nov 2023 -- Mar 2024 $\vert$ Remote} {} {{}{} } \textit{Data Engineer }
+  % \resumeItemListStart
+  % \resumeItemCustom{Spearheaded the development of an AI hub, utilizing LLM agents to address inquiries related to banking and financial law. Employed retrieval-augmented generation on proprietary Absa Bank data.}
+  % \resumeItemCustom{Coded in Python and Flutter using Dart, utilizing the LangChain library and integrating the ChatGPT API. Successfully deployed the solution on a Google Cloud instance to ensure real-time streaming.}
+  % \resumeItemCustom{Implemented robust speech-to-text and realistic text-to-speech functionalities.} % See \href{https://absa-ai.web.app}{absa-ai.web.app}}
+% \resumeItemListEnd
+
+
+  \resumeJobSubheadingD
+  {}{}{}
+  {ML Collective}{Jun 2020 -- Present $\vert$ Remote}
+  {}
+ {{}{} }
+  \textit{
+ Machine Learning
+  Researcher }
+  \resumeItemListStart
+  \resumeItemCustom{Successfully deployed the most efficient object detection model, Efficient Detection, to detect airplanes from satellite images using Python and PyTorch.}
+  %\resumeItemCustom{I analyse research papers in the field of physics informed ML, computer vision and reinforcement learning. Like neural ODE, inverse reinforcement learning (GAIL) and Masked RCNN. See sample \textcolor{blue}{\href{https://www.dropbox.com/s/k7alovwtq06falo/PDNO.pdf?dl=0}{[PPT]}}.}
+  \resumeItemCustom{Collaborated and communicated perfectly with 2 researchers to co-author and submit a blog post to ICLR comparing Deepmind's mechGraphNets model to molecular particle simulators. I simulated flag dynamics, bash scripted to download Blender and created renders using cloud GPU on Google Colab (Linux). See\textcolor{blue}{\href{https://www.dropbox.com/s/y86gnyfd6u8f9rj/Final\%20ICLR\%20Blog\%20Post.pdf?dl=0}{[report]}}.}
+  \resumeItemCustom{Proposed a neural-evolutionary NN architecture that theoretically outperforms NEAT and DQN, presented my theory before experts, see \textcolor{blue}{\href{https://youtu.be/tXWcrwOwhFE}{[presentation]}}. Am now writing code in Python leveraging iterative depth first search, trees and other complex design patterns.  }
+\resumeItemListEnd
+
+  \resumeJobSubheadingD
+      {}{}{}
+      {IO Technolgoies}{ Apr 2023 -- Jun 2023 $\vert$ Remote}
+      {}
+     {{}{} }
+      \textit{Fullstack Software Developer - Contract  }
+      \resumeItemListStart
+
+
+\resumeItemCustom{Independently developed a sophisticated vehicle tracking system responsible for notifying users of driving violations, including overspeeding and night driving infractions to adhere to traffic regulations.}
+
+\resumeItemCustom{Designed an efficient algorithm in Python to detect instances of violations from hundreds of vehicles by calculating time, speed, and other parameters per API request. Updated the database and leveraged multithreading and the Outlook API to dispatch violation alerts instantly to emails.}
+
+\resumeItemCustom{Leveraged AWS Serverless lambda to seamlessly present real-time vehicle information, facilitating remote debugging for enhanced efficiency. }
+
+%\resumeItemCustom{Designed a novel algorithm integrating Bing Maps API to assess and classify road conditions. Containerized the system using Docker and deployed it on a AWS virtual machine, ensuring optimal scalability and performance.}
+
+%\resumeItemCustom{Designed an intuitive homepage, login page, and dashboard in Flutter using Dart. The dashboard featured a dynamic list displaying live vehicle feeds. Additionally, containerized the system using Docker and deployed it on a AWS virtual machine, ensuring optimal scalability and performance.}
+\resumeItemListEnd
+
+%\newpage
+
+\resumeJobSubheadingD
+      {}{}{}
+      {Konkola Copper Mines }{Oct 2022 -- May 2023 { $\vert$ }Chingola, Zambia }
+      {}
+     {{}{} }
+     
+\textit{Mechanical Engineer Trainee }
+
+\resumeItemListStart
+
+\resumeItemCustom{Developed Python-based predictive analytics model for pump vibration data, enabling accurate failure forecasting and facilitating proactive maintenance strategies, resulting in improved operational readiness.}
+
+\resumeItemCustom{Led the implementation of YOLOv8, an advanced image classification model, for predictive maintenance, resulting in a \$300k cost-effective solution that significantly reduced hazards and downtime.}
+ 
+
+% \resumeItemCustom{Designed and deployed an automated data analysis system for pump and motor vibrations, streamlining a process previously requiring multiple personnel and enhancing operational efficiency.}
+
+%\resumeItemCustom{Managed and directed 10 cross-functional teams of 5 members each, overseeing predictive and reactive maintenance strategies at a major copper mining facility, demonstrating strong leadership and commitment through extended work hours.}
+
+%\resumeItemCustom{Worked with expertise in workshop and field operations, specializing in the disassembly, repair, and assembly of industrial pumps, gearboxes, and machinery during running hours and shutdowns.}
+
+\resumeItemCustom{Analyzed SCADA system data to diagnose pump failures and implemented a systematic review process of artisan reports, ensuring up-to-date maintenance protocols and enhancing overall system reliability.}
+
+\resumeItemListEnd
+
+\resumeJobSubheadingD
+      {}{}{}
+      {Afri-Meta}{Jun 2022 -- Sep 2022 $\vert$ Lusaka, Zambia}
+      {}
+     {{}{} }
+      \textit{ Fullstack Software Developer Intern }
+      \resumeItemListStart
+
+
+\resumeItemCustom{Spearheaded a cross-functional team of 4 in developing an advanced food classification system, leveraging data engineering principles to create a robust ETL pipeline and deploying scalable machine learning models on Google Cloud Platform.}
+
+\resumeItemCustom{Engineered and implemented a high-performance Normalizer-Free 'EffNetV2' machine learning model, utilizing Python and PyTorch for data preprocessing and model training. Achieved 93\% accuracy with 0.8-second inference time, demonstrating expertise in optimizing large-scale data processing systems.}
+
+\resumeItemCustom{Architected and executed an end-to-end MLOps pipeline on Google Cloud Engine, incorporating Docker for containerization and custom Linux Bash scripts for automation. Implemented data versioning and model monitoring to ensure consistent performance and facilitate iterative improvements. Demo: {\textcolor{blue}{\href{https://www.dropbox.com/s/3va3to2hpfic3mq/Calorifythis.mp4?dl=0}{[link]}}}.}
+
+%\resumeItemCustom{Collaborated in a team of 7 with other members to programme an e-commerce app in Flutter using Dart, wrote code to alter SQL database.}
+
+\resumeItemListEnd
+    
+% \resumeJobSubheadingD
+%       {}{}{}
+%       {Manchester United Football Club}{Nov 2016 -- Mar 2019 $\vert$ Manchester, UK}
+%       {}
+%      {{}{} }
+     
+%       \textit{Hospitality Staff}
+%       \resumeItemListStart
+      
+% \resumeItemCustom{Demonstrated leadership skills by covering the manager and onboarding new recruits. }
+
+% \resumeItemCustom{I served thousands of football fans on matchdays where I used my communications skills and the ability to use initiative in busy environments. }
+
+% %\resumeItemCustom{Demonstrated excellent work ethic and trustworthiness by working extra hours in other departments, such as the executive lounge.}
+               
+% \resumeItemListEnd
+
+    
+\resumeSubHeadingListEnd
+
+
+%\vspace{-2pt}
+
+
+%--------COMPUTER SCIENCE SKILLS------------
+
+\section{Open-Source Engagement and Independent Research Projects}
+
+
+\resumeSubHeadingListStart
+
+\resumeSubItem{LabLab AI LLM Hackathon}{
+Developed full-stack healthcare recommendation web application integrating LLM APIs for personalized fitness and medication recommendations based on patient conditions, featuring automated data pipelines and model deployment available at \href{https://lablab.ai/event/lokahi-innovation-in-healthcare/lifesync/lifesync}{Lablab.ai}.
+}
+\vspace*{2pt}
+
+
+%\resumeSubItem{Cyber Threat Intelligence Platform (Absa Zambia Hackathon - 2nd Place)}{Designed and implemented a data pipeline for real-time cybersecurity incident analysis using Python and NoSQL. Built interactive dashboards for threat visualization and reporting using Flutter. Applied statistical analysis to identify patterns and anomalies in security data, providing actionable insights for risk assessment. Collaborated with banking sector experts to ensure compliance with regulatory requirements.}
+
+\resumeSubItem{Credit Risk Prediction}{Developed credit risk prediction model using random forest classifier achieving 93\% ROC AUC and 92\% recall/accuracy. Enhanced model performance through feature engineering of temporal patterns and loan characteristics, with cross-validation across multiple algorithms.
+}
+\vspace*{2pt}
+
+\resumeSubItem{Absa Bank Cybersecurity Hackathon - 2nd Place}{Developed a real-time cyber threat intelligence platform using Flutter (Dart), Python, and NoSQL, enabling secure data aggregation, visualization, and reporting, guided by Bank of Zambia and ZICTA on regulatory-compliant cyber resilience.}
+
+%{Developed a real-time data aggregation system that collected, preprocessed, and stored cybersecurity incidents and threat intelligence data in a NoSQL database. Designed a full-stack web application using Flutter (Dart) and Python, enabling efficient data retrieval, visualization, and reporting . Mentored by industry experts from Bank of Zambia, and ZICTA on building real-world cyber-resilient solutions compliant with Zambian laws and regulations.}
+
+
+
+
+%\\resumeSubItem{Absa Bank Data Science Hackathon }{Was shortlisted for the Data Science hackathon. In under 24 hours, I utilized Python to analyze and predict customer churn from big data. Developed code for data visualization, correlation matrices, and SVM algorithm implementation. See \textcolor{blue}{\href{https://www.dropbox.com/s/v599evmeuq9hsym/AbsaReport_2nd_Assement.pdf?dl=0}{[report]}}}
+%\\vspace*{2pt}
+
+\resumeSubItem{MTN Mobile Money Hackathon}{Built and deployed a customer support LLM agent using RAG on MTN data with Python, LangChain, and the ChatGPT API, enforcing domain-safe prompt controls and delivering a Flutter-based UI hosted on Google Cloud.}
+
+\vspace*{2pt}
+
+\resumeSubItem{Estimating Solubility of Chemical Elements using GraphSAGE}
+ {Used Python with PyTorch to deploy the GraphSAGE model to classify proteins from big datasets of proteins. It archived accuracy of over 80\%, wrote a report which included essential graph algorithms. See \textcolor{blue}{\href{https://www.dropbox.com/s/vg7nbcy2lk56o9f/Genetic\%20Operators\%20and\%20Permutations\%20on\%20GraphNetworks.pdf?dl=0}{[report]}}.} 
+
+\resumeSubHeadingListEnd
+
+
+% \section{Other Projects and Articles}
+% \resumeSubHeadingListStart
+
+% \resumeSubItem{Student Union Presidential Election - Runner-Up}
+% {Independently ran for Student Union President against six competing teams, showcasing effective communication, leadership skills, and a strong work ethic. Garnered 1,000 votes, securing the second position.}
+
+
+% \resumeSubItem{ An ML Algorithm NASA Invented to Land on the Moon}
+% {Published a Medium article dissecting the theoretical foundations of control theory, comprising advanced mathematical derivations of machine learning algorithms, such as particle filtering, Wiener's filter, and the Kalman filter, alongside Python code for practical implementation. See \href{https://bleymambwe.medium.com/an-ml-algorithm-nasa-invented-to-land-on-the-moon-7e4eb589230}{article}.}
+
+
+% \resumeSubItem{Dante Rush Game}
+% {Independently programmed a dynamic game in Flutter using Dart, incorporating Rive animations achieving a smooth 60 frames per second performance.}
+
+
+%\resumeSubHeadingListEnd
+
+%\vspace{0.5pt}
+% \section{ Academic Experience }
+%  \resumeSubHeadingListStart
+
+%  \resumeJobSubheadingD
+%  {}{}{}
+%  {Academic Tutor}{Apr 2017 -- Dec 2018 $\vert$ Manchester, UK}
+%  {}
+% {{}{} }
+
+% % \textit{}
+%  \resumeItemListStart
+ 
+%  \resumeItemCustom{Tutored A level students in Physics, Chemistry, Biology and Mathematics, received testimony of a student who started ranking in the top 10 from the bottom.}
+
+%\resumeItemListEnd
+
+%   \resumeJobSubheadingD
+%       {}{}{}
+%       {Student Union President Runner-up}{Sept 2018 -- Mar 2019 $\vert$ Manchester, UK}
+%       {}
+%      {{}{} }
+     
+%      % \textit{}
+%       \resumeItemListStart
+      
+%  \resumeItemCustom{Independently ran for Student Union President against six competing teams, showcasing effective communication and leadership skills and strong work ethic. Garnered 1000 votes, securing the second position.}
+% % %\resumeItemCustom{Researched the field of psychometrics, calculated optimal pressure and velocity values for humidification. Used Solidworks to communicate the design.}           
+% \resumeItemListEnd
+
+%  \resumeJobSubheadingD
+%       {}{}{}
+%       {Tracheostomy Humidifier}{Sept 2018 -- Mar 2019 $\vert$ Manchester, UK}
+%       {}
+%      {{}{} }
+     
+%       \textit{Final Year Thesis}
+%       \resumeItemListStart
+      
+% \resumeItemCustom{Designed a heating exchanger device to provide humidified air to patients who have complications with breathing.}
+% %\resumeItemCustom{Researched the field of psychometrics, calculated optimal pressure and velocity values for humidification. Used Solidworks to communicate the design.}           
+% \resumeItemListEnd
+
+% \resumeJobSubheadingD
+%       {}{}{}
+%       {Pipe Climbing Robot}{Sept 2017 -- Mar 2018 $\vert$ Manchester, UK}
+%       {}
+%      {{}{} }
+     
+%       \textit{$2^{nd}$ Year Project}
+%       \resumeItemListStart
+      
+% \resumeItemCustom{Led a team of 4 in designing a pipe climbing robot for the IMechE Challenge.}
+
+% \resumeItemCustom{I designed the control unit, wrote code in C and simulated the motor's rotations per minute in line with calculations, I also set up the Arduino and uploaded the programme on it.}
+% \resumeItemListEnd
+
+% \resumeJobSubheadingD
+%       {}{}{}
+%       {Repeatable Vehicle}{Sept 2016 -- Mar 2017 $\vert$ Manchester, UK}
+%       {}
+%      {{}{} }
+     
+%       \textit{$1^{nd}$ Year Project}
+%       \resumeItemListStart
+      
+% \resumeItemCustom{Led a team of 4 in designing a repeatable vehicle to compete in the IMechE Design Challenge.}
+
+% \resumeItemCustom{I Designed the control system of the vehicle which comprised of electronic components like the DPDT switch for reversal. }
+
+% %\resumeItemCustom{I also covered the manager and assisted in on onboarding new recruits were I used my leadership skills.}
+               
+% \resumeItemListEnd
+
+
+% \resumeJobSubheadingD
+%       {}{}{}
+%       {Academic Tutor}{Apr 2017 -- Dec 2018 $\vert$ Manchester, UK}
+%       {}
+%      {{}{} }
+     
+%       \textit{A Level Tutor}
+%       \resumeItemListStart
+      
+% \resumeItemCustom{Tutored A level students in Physics, Chemistry, Biology and Mathematics, received testimony of a student who started ranking in the top 10 from the bottom.}
+% \resumeItemListEnd
+
+ \resumeSubHeadingListEnd
+%-----------EDUCATION-----------------
+\section{Education }
+
+\resumeSubHeadingListStart
+ 
+\resumeSubItem{Independent Study} {2019 - 2021 
+~~~ $\circ$ A Matrix Algebra Approach to Artificial Intelligence 
+%\href{https://www.springer.com/gp/book/9789811527692}{\textsuperscript{\small{\faBook}}} \\
+~~ $\circ$ Approximation Theory and Algorithms for Data Analysis 
+~~~ $\circ$ Data Structures, Algorithms and System Design}
+
+\vspace*{5pt}
+\resumeSubItem{\textsuperscript{}Manchester Metropolitan University }{2015 - 2019 $\circ$ BEng (Hons) Mechanical Engineering ~~ $\vert$ Manchester, UK   }
+
+\vspace{5pt}
+{ \color{brown! 80}\hrule}
+ \resumeSubItem{\textsf{ Awards \faTrophy} }{ $\circ $ Carbon Literacy $\circ$  Hour of Code{\small{ \href{https://www.dropbox.com/s/iq4mhbf5r6rdpr2/hour\%20of\%20code.jpg?dl=0}{\faCertificate}}}}{  $\bigg \vert $ \small{\textsf{\textbf{Hobbies}}: \textit{Chess \symknight ~~~Sound Design {\href{https://www.dropbox.com/s/chbltfrsdu4wikb/bell_sounddesign.mp3?dl=0 }{ \textmusicalnote }} Music Production   \href{https://www.dropbox.com/s/aq5357987mbt1d7/Melody\%20Mix.wav?dl=0}{ \faMusic } }}}
+%$\circ $ Carbon Literacy {\color{green!80} \faLeaf}
+\resumeSubHeadingListEnd
+
+%-------------------------------------------
+
+
+\end{document}
