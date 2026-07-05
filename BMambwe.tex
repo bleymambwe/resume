@@ -9,7 +9,7 @@
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{verbatim}
 \usepackage{enumitem}
-\usepackage[pdftex]{hyperref}
+\usepackage{hyperref}
 \usepackage{fancyhdr}
 \usepackage[a4paper, top=0.3cm, bottom=0.2cm, left=1.2cm, right=1.2cm, ]{geometry}%, showframe
 \usepackage{color}
@@ -21,8 +21,8 @@
 \usepackage{epstopdf}
 \usepackage{ifsym}
 %\usepackage{Mnsymbol}
-\usepackage{skak}
-\usepackage{adforn}
+%\usepackage{skak}   % chess symbols — not in tectonic bundle
+%\usepackage{adforn}
 \usepackage{eso-pic,graphicx}
 %\usepackage{tikz}
 %\usepackage[T1]{fontenc}
@@ -341,7 +341,7 @@ AI Engineer}
   \resumeItemCustom{Successfully deployed the most efficient object detection model, Efficient Detection, to detect airplanes from satellite images using Python and PyTorch.}
   %\resumeItemCustom{I analyse research papers in the field of physics informed ML, computer vision and reinforcement learning. Like neural ODE, inverse reinforcement learning (GAIL) and Masked RCNN. See sample \textcolor{blue}{\href{https://www.dropbox.com/s/k7alovwtq06falo/PDNO.pdf?dl=0}{[PPT]}}.}
   \resumeItemCustom{Collaborated and communicated perfectly with 2 researchers to co-author and submit a blog post to ICLR comparing Deepmind's mechGraphNets model to molecular particle simulators. I simulated flag dynamics, bash scripted to download Blender and created renders using cloud GPU on Google Colab (Linux). See\textcolor{blue}{\href{https://www.dropbox.com/s/y86gnyfd6u8f9rj/Final\%20ICLR\%20Blog\%20Post.pdf?dl=0}{[report]}}.}
-  \resumeItemCustom{Proposed a neural-evolutionary NN architecture that theoretically outperforms NEAT and DQN, presented my theory before experts, see \textcolor{blue}{\href{https://youtu.be/tXWcrwOwhFE}{[presentation]}}. Am now writing code in Python leveraging iterative depth first search, trees and other complex design patterns.  }
+  \resumeItemCustom{Developed PRISM, a permutation-based neural architecture search algorithm with provable convergence guarantees and polynomial runtime complexity; authored a comprehensive research summary and presented the underlying neuro-evolutionary theory before experts, see \textcolor{blue}{\href{https://youtu.be/tXWcrwOwhFE}{[presentation]}}.}
 \resumeItemListEnd
 
   \resumeJobSubheadingD
@@ -433,6 +433,16 @@ AI Engineer}
 
 %\vspace{-2pt}
 
+
+%--------ENTREPRENEURSHIP------------
+
+\section{Entrepreneurship \& Products}
+
+\resumeSubHeadingListStart
+
+\resumeSubItem{EVE — AI Financial Intelligence Assistant \href{https://play.google.com/store/apps/details?id=com.evefintech.eve}{\scriptsize{\faExternalLink{}}}}{Founded and independently engineered a cross-platform AI financial intelligence app: users track stocks, crypto, and forex on interactive OHLC charts and converse with a voice-enabled AI assistant grounded in live market data. Built with Flutter, Python FastAPI on Google Cloud Run, and Firebase; launched to production on the Google Play Store and web with CI/CD, in-app payments, and OTP authentication.}
+
+\resumeSubHeadingListEnd
 
 %--------COMPUTER SCIENCE SKILLS------------
 
@@ -577,13 +587,19 @@ Developed full-stack healthcare recommendation web application integrating LLM A
 % \resumeItemCustom{Tutored A level students in Physics, Chemistry, Biology and Mathematics, received testimony of a student who started ranking in the top 10 from the bottom.}
 % \resumeItemListEnd
 
- \resumeSubHeadingListEnd
 %-----------EDUCATION-----------------
 \section{Education }
 
 \resumeSubHeadingListStart
- 
-\resumeSubItem{Independent Study} {2019 - 2021 
+
+\resumeSubItem{TRI // DeepMind AI Research Training}{2026 - Present
+~~~ $\circ$ Research paper in progress: \textit{LLM Latent Probing for Toxicity Detection}}
+
+\vspace*{5pt}
+\resumeSubItem{Professional Training}{ $\circ$ Enterprise API Training -- Stanbic Bank ~~~ $\circ$ AI Governance -- Alison}
+
+\vspace*{5pt}
+\resumeSubItem{Independent Study} {2019 - 2021
 ~~~ $\circ$ A Matrix Algebra Approach to Artificial Intelligence 
 %\href{https://www.springer.com/gp/book/9789811527692}{\textsuperscript{\small{\faBook}}} \\
 ~~ $\circ$ Approximation Theory and Algorithms for Data Analysis 
@@ -594,7 +610,7 @@ Developed full-stack healthcare recommendation web application integrating LLM A
 
 \vspace{5pt}
 { \color{brown! 80}\hrule}
- \resumeSubItem{\textsf{ Awards \faTrophy} }{ $\circ $ Carbon Literacy $\circ$  Hour of Code{\small{ \href{https://www.dropbox.com/s/iq4mhbf5r6rdpr2/hour\%20of\%20code.jpg?dl=0}{\faCertificate}}}}{  $\bigg \vert $ \small{\textsf{\textbf{Hobbies}}: \textit{Chess \symknight ~~~Sound Design {\href{https://www.dropbox.com/s/chbltfrsdu4wikb/bell_sounddesign.mp3?dl=0 }{ \textmusicalnote }} Music Production   \href{https://www.dropbox.com/s/aq5357987mbt1d7/Melody\%20Mix.wav?dl=0}{ \faMusic } }}}
+ \resumeSubItem{\textsf{ Awards \faTrophy} }{ $\circ $ Carbon Literacy $\circ$  Hour of Code{\small{ \href{https://www.dropbox.com/s/iq4mhbf5r6rdpr2/hour\%20of\%20code.jpg?dl=0}{\faCertificate}}}}{  $\bigg \vert $ \small{\textsf{\textbf{Hobbies}}: \textit{Chess ~~~Sound Design {\href{https://www.dropbox.com/s/chbltfrsdu4wikb/bell_sounddesign.mp3?dl=0 }{ \textmusicalnote }} Music Production   \href{https://www.dropbox.com/s/aq5357987mbt1d7/Melody\%20Mix.wav?dl=0}{ \faMusic } }}}
 %$\circ $ Carbon Literacy {\color{green!80} \faLeaf}
 \resumeSubHeadingListEnd
 
